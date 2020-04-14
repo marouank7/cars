@@ -1,0 +1,20 @@
+.container1{
+    background-color: #340809 ;
+    
+}
+
+.container2{
+    background-color: #e0d3be ;
+    margin-top: 100px;
+    margin-bottom: 300px;
+}
+
+.separationEqupieContact{
+    background-image: url('../../img/intBMW.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 650px;
+    margin: 0;
+    padding: 0;
+}
+

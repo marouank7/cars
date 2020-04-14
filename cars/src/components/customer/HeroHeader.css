@@ -1,0 +1,40 @@
+#HeroHeader{
+    background:url('../../img/AMG_wood.jpg');
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+.text-intro{
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.preTxt{
+    font-size: 40px;
+}
+
+h1{
+    font-size: 70px;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+@media screen and (max-width : 768px){
+
+    header{
+        height: 60vh;
+    }
+
+    .text-intro{
+        padding-top:200px;
+    }
+
+    .preTxt{
+        font-size: 30px;
+    }
+
+    h1{
+        font-size: 60px;
+    }
+}

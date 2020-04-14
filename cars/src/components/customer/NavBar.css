@@ -1,0 +1,12 @@
+.navBarBg{
+    background-color: #340809;
+    
+}
+
+.buttonNav{
+    color: #e0d3be;
+}
+
+a:hover{
+    color: red;
+}

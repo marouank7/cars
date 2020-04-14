@@ -1,0 +1,115 @@
+import React, { Component } from 'react'
+import './contact.css'
+
+
+class Contact extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+    render() { 
+        return ( 
+            <section class="text-white py-5 backgroundForm1" id="contact">
+                <div class="container ">
+                    <div class="container p-5 backgroundForm2">
+
+                    <h2 class="titreContact text-center mb-5 fontText">Nous Contacter</h2>
+                        <div class="row">
+                            <div class="col-10 mx-auto"> 
+                                <form id="contact-form" role="form" action="https://formspree.io/marouan_k@live.be" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-start">
+                                                <div>
+                                                    <i class="fas fa-map-marked fontText"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="pl-2 item-h1 fontText"><strong>Adresse</strong></div>
+                                                    <p class="pl-2 fontText"> Rue Ernest Berthet 1B/202</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-start">
+                                                <div>
+                                                    <i class="fas fa-envelope fontText"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="pl-2 item-h1 fontText"><strong>E-MAIL</strong></div>
+                                                    <p class="pl-2 fontText"> marouan_k@live.be</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-start">
+                                                <div>
+                                                    <i class="fas fa-business-time fontText"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="pl-2 item-h1 fontText"><strong>HORAIRE</strong></div>
+                                                    <p class="pl-2 fontText">Lundi - Vendredi</p>
+                                                    <p class="pl-2 fontText">09H00 - 18H00</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-start">
+                                                <div>
+                                                    <i class="fas fa-phone-alt fontText"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="pl-2 item-h1 fontText"><strong>TÉLÉPHONE</strong></div>
+                                                    <p class="pl-2 fontText">(+32) 488.28.08.31</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                </div>
+                                                <input type="text" id="form_prenom" class="form-control" name="prenom" placeholder="Prénom" required="required"/>
+                                                <div class="input-group-prepend">
+                                                </div>
+                                            </div>
+
+                                            {/* <h6 id="validePrenom">Vous devez inscire votre prénom.</h6> */}
+
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="form_nom" class="form-control" name="nom" placeholder="Nom" required="required"/>
+                                            </div>
+
+                                            {/* <h6 id="valideNom">Vous devez inscrire votre Nom.</h6> */}
+
+                                            <div class="input-group mb-3">
+                                                <input type="email" id="form_email" class="form-control" name="email" placeholder="Email" required="required"/>
+                                            </div>
+
+                                            {/* <h6 id="valideEmail">Votre email n'est pas valide.</h6> */}
+                                            
+                                            <div class="input-group mb-3">
+                                                    <input type="number" id="form_phone" class="form-control" name="phone" placeholder="Téléphone"/>
+                                            </div>
+                                            
+                                            <div class="input-group mb-3">
+                                                <textarea class="form-control" name="message" id="form_message" rows="4" required="required"  placeholder="Message"></textarea>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">*</div>
+                                                </div>
+                                            </div>
+                                            {/* <h6 id="valideMessage">Votre message doit contenir plus de 10 caractères.</h6> */}
+                                            <div class="text-center">
+                                                <input type="submit" class="btn btn-success btn-send mt-3" value="Envoyez" id="submitt"/>                                  
+                                            </div>
+                                            
+
+
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+         );
+    }
+}
+ 
+export default Contact;

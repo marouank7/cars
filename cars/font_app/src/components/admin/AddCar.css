@@ -1,0 +1,24 @@
+.sectionAddCar{
+    height: 100%;
+    background: #340809 ;
+}
+
+.titrePage{
+    color: #e0d3be;
+}
+
+.titrePage2{
+    font-size: 44px;
+    font-weight: bold;
+    color: #340809 ;
+}
+
+.sectionAddCar2{
+    background: #e0d3be;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.save{
+    background: #340809 ;
+}

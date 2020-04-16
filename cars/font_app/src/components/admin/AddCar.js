@@ -38,6 +38,7 @@ class AddCar extends Component {
 
     render() { 
 
+        const {tritrePage2} = this.props
         
         const listCaracteristique = [
             {
@@ -147,7 +148,7 @@ class AddCar extends Component {
                         <div class="container-fluid py-5 text-center">
                             <div>
                                 {/* <i class="fas fa-car"></i> */}
-                                <p class="titrePage2">AJOUTER UNE VOITURE</p>
+                                <p class="titrePage2">{tritrePage2}</p>
                                 {/* <i class="fas fa-car"></i> */}
                             </div>
                         </div>

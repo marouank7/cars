@@ -13,7 +13,7 @@ class AdminPage extends Component {
                 <h1 class="text-center py-5 text-light">Sanders cars</h1>
                 <div class="container-fluid admin2">
                     <div class="row">
-                        <h1><strong>Liste des items    </strong><Link to="addcar" class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Ajouter</Link></h1>
+                        <h1><strong>Liste des items    </strong><Link to="addcarpage" class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Ajouter</Link></h1>
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>

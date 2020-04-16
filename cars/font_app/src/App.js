@@ -9,9 +9,9 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import ClientPage from './components/customer/customerPage/ClientPage'
 import AdminPage from './components/admin/AdminPage'
 import Delete from './components/admin/Delete'
-import Update from './components/admin/Update'
+import UpdatePage from './components/admin/UpdatePage'
 import ViewPage from './components/admin/ViewPage'
-import AddCar from './components/admin/AddCar'
+import AddCarPage from './components/admin/AddCarPage'
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
         <Route exact path="/" component={ClientPage}/>
         <Route exact path="/adminpage" component={AdminPage}/>
         <Route exact path="/delete" component={Delete}/>
-        <Route exact path="/update" component={Update}/>
+        <Route exact path="/update" component={UpdatePage}/>
         <Route exact path="/viewpage" component={ViewPage}/>
-        <Route exact path="/addcar" component={AddCar}/>
+        <Route exact path="/addcarpage" component={AddCarPage}/>
       </Router>
     </div>
   );

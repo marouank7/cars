@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import AddCar from './AddCar'
 
 class Update extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class Update extends Component {
     }
     render() { 
         return ( 
-            <h1>Je suis dans Update</h1>
+            <AddCar tritrePage2="AJOUTER UNE VOITURE"/>
          );
     }
 }

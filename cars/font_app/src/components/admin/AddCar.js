@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 import './AddCar.css'
 
 class AddCar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // marque : "",
-            // modele : "",
-            // carburant : "",
-            // classeEmission : "",
-            // carrosserie : "",
-            // portes : "",
-            // transmission : "",
-            // couleur : "",
-            // interieur : "",
-            // AnneeDeFabrication : "",
-            // co2 : "",
-            // NombreDePlaces : "",
-            // cylindree : "",
-            // UrlCarPass : "",
-            // prix : ""
+            marque : "",
+            modele : "",
+            carburant : "",
+            classeEmission : "",
+            carrosserie : "",
+            portes : "",
+            transmission : "",
+            couleur : "",
+            interieur : "",
+            AnneeDeFabrication : "",
+            co2 : "",
+            NombreDePlaces : "",
+            cylindree : "",
+            UrlCarPass : "",
+            prix : ""
          }
     }
 
@@ -32,9 +33,20 @@ class AddCar extends Component {
         event.preventDefault();
         JSON.stringify(this.state)
         console.log(this.state)
+        this.postCar()
     }
 
     
+
+    postCar = () => {
+        axios.post('http://localhost:3005/api/getcar', {
+            marque : 'Jaguar',
+            portes: '23'
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+    }
 
     render() { 
 

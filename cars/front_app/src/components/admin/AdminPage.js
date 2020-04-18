@@ -22,7 +22,7 @@ class AdminPage extends Component {
             console.log(response);
             this.setState({ listCars : response})
             // this.setState({ movies : response.data.movies})
-            console.log("iciiii",this.state.listCars.data[0].marque)
+            console.log("iciiii",this.state.listCars.data)
             
         })
         .catch((error) => {
@@ -52,7 +52,23 @@ class AdminPage extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                
+                                    {this.state.listCars.data.map((them) => 
+                                    <li>
+                                        <tr>
+                                            <td>{them.id}</td>
+                                            <td>{them.marque}</td>
+                                            <td>{them.modele}</td>
+                                            <td>{them.prix}</td>
+                                            <td style={{width:"350px"}}>
+                                                <Link to="/viewpage" class="btn btn-light"><i class="far fa-eye"></i> Voir</Link>
+                                                <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>
+                                                <Link to="/delete" class="btn btn-danger ml-2"><i class="far fa-eye"></i> Supprimer</Link>
+                                            </td>
+                                        </tr>
+                                    </li>)}
+                            
+                                {/* <tr>
                                     <td>Item 1</td>
                                     <td>Description 1</td>
                                     <td>Prix 1</td>
@@ -62,7 +78,7 @@ class AdminPage extends Component {
                                         <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>
                                         <Link to="/delete" class="btn btn-danger ml-2"><i class="far fa-eye"></i> Supprimer</Link>
                                     </td>
-                                </tr>
+                                </tr> */}
                             </tbody>
                         </table>
                     </div>

@@ -7,7 +7,9 @@ class AdminPage extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            listCars : []
+            listCars : {
+                data : []
+            }
          }
     }
 
@@ -19,10 +21,10 @@ class AdminPage extends Component {
         axios.get('http://localhost:3005/api/getcar')
         .then((response) => {
             // handle success
-            console.log(response);
+            console.log("response",response.data)
             this.setState({ listCars : response})
             // this.setState({ movies : response.data.movies})
-            console.log("iciiii",this.state.listCars.data)
+            console.log("iciiii",response)
             
         })
         .catch((error) => {
@@ -44,6 +46,7 @@ class AdminPage extends Component {
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    {/* <th>{this.state.listCars[5].marque}</th> */}
                                     <th>Id</th>
                                     <th>Marque</th>
                                     <th>Modèle</th>
@@ -54,7 +57,6 @@ class AdminPage extends Component {
                             <tbody>
                                 
                                     {this.state.listCars.data.map((them) => 
-                                    <li>
                                         <tr>
                                             <td>{them.id}</td>
                                             <td>{them.marque}</td>
@@ -66,10 +68,10 @@ class AdminPage extends Component {
                                                 <Link to="/delete" class="btn btn-danger ml-2"><i class="far fa-eye"></i> Supprimer</Link>
                                             </td>
                                         </tr>
-                                    </li>)}
+                                    )}
                             
                                 {/* <tr>
-                                    <td>Item 1</td>
+                                    <td>Id</td>
                                     <td>Description 1</td>
                                     <td>Prix 1</td>
                                     <td>Catégorie 1</td>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import axios from 'axios'
 import './AddCar.css'
 
@@ -33,10 +34,9 @@ class AddCar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // JSON.stringify(this.state)
-        // console.log("teste 1", this.state)
         this.postCar()
     }
+
 
 
     postCar = () => {
@@ -47,9 +47,13 @@ class AddCar extends Component {
           .then(function (response) {
             console.log(response);
           })
+          .then(() => this.props.history.push('/adminpage'))
     }
 
     render() { 
+        // if(this.state.adminpage === true){
+        //    return <Redirect to='/adminpage'/>
+        // }
 
         const {tritrePage2} = this.props
         
@@ -210,6 +214,7 @@ class AddCar extends Component {
                         </div>
                         <div class="container text-center py-5">
                             <button to="adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</button>
+                            {/* <Link to="/adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</Link> */}
                         </div>
                         
     
@@ -221,4 +226,4 @@ class AddCar extends Component {
     }
 }
  
-export default AddCar;
+export default withRouter(AddCar);

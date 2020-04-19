@@ -7,9 +7,7 @@ class AdminPage extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            listCars : {
-                data : []
-            }
+            listCars : []
          }
     }
 
@@ -22,9 +20,10 @@ class AdminPage extends Component {
         .then((response) => {
             // handle success
             console.log("response",response.data)
-            this.setState({ listCars : response})
+            this.setState({ listCars : response.data})
             // this.setState({ movies : response.data.movies})
-            console.log("iciiii",response)
+            console.log("iciiii",response.data)
+            console.log('this.state', this.state.listCars.data)
             
         })
         .catch((error) => {
@@ -56,12 +55,12 @@ class AdminPage extends Component {
                             </thead>
                             <tbody>
                                 
-                                    {this.state.listCars.data.map((them) => 
+                                    {this.state.listCars.map((propsCar) => 
                                         <tr>
-                                            <td>{them.id}</td>
-                                            <td>{them.marque}</td>
-                                            <td>{them.modele}</td>
-                                            <td>{them.prix}</td>
+                                            <td>{propsCar.id}</td>
+                                            <td>{propsCar.marque}</td>
+                                            <td>{propsCar.modele}</td>
+                                            <td>{propsCar.prix}</td>
                                             <td style={{width:"350px"}}>
                                                 <Link to="/viewpage" class="btn btn-light"><i class="far fa-eye"></i> Voir</Link>
                                                 <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>

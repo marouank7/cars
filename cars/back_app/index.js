@@ -41,6 +41,8 @@ console.log('je suis dans mon serveur')
     } else {
       // Si tout s'est bien passé, on envoie un statut "ok".
       res.sendStatus(200);
+      // res.redirect('/success')
+      
     }
   });
 });

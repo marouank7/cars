@@ -14,6 +14,7 @@ class AdminPage extends Component {
     componentDidMount(){
         this.getDataAddCar()
     }
+
     
     getDataAddCar = () => {
         axios.get('http://localhost:3005/api/getcar')
@@ -23,7 +24,7 @@ class AdminPage extends Component {
             this.setState({ listCars : response.data})
             // this.setState({ movies : response.data.movies})
             console.log("iciiii",response.data)
-            console.log('this.state', this.state.listCars.data)
+            console.log('this.state', this.state.listCars[0])
             
         })
         .catch((error) => {
@@ -35,7 +36,25 @@ class AdminPage extends Component {
         });
     };
 
+    removeCars = (id) =>{
+        axios.delete(`http://localhost:3005/api/getcar/${id}`)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            this.getDataAddCar()
+      })
+    }
+
+    // delete = (index) => {
+    //     const NewListCars = this.state.listCars;
+    //     NewListCars.splice(index, 1);
+    //     this.setState({
+    //         listCars : NewListCars
+    //     })
+    // }
+
     render() { 
+        
         return ( 
             <section class="admin1">
                 <h1 class="text-center py-5 text-light">Sanders cars</h1>
@@ -55,8 +74,8 @@ class AdminPage extends Component {
                             </thead>
                             <tbody>
                                 
-                                    {this.state.listCars.map((propsCar) => 
-                                        <tr>
+                                    {this.state.listCars.map((propsCar, index) => 
+                                        <tr key={index}>
                                             <td>{propsCar.id}</td>
                                             <td>{propsCar.marque}</td>
                                             <td>{propsCar.modele}</td>
@@ -64,7 +83,8 @@ class AdminPage extends Component {
                                             <td style={{width:"350px"}}>
                                                 <Link to="/viewpage" class="btn btn-light"><i class="far fa-eye"></i> Voir</Link>
                                                 <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>
-                                                <Link to="/delete" class="btn btn-danger ml-2"><i class="far fa-eye"></i> Supprimer</Link>
+                                                <button to="/delete" class="btn btn-danger ml-2" onClick={() => this.removeCars(propsCar.id)} ><i class="far fa-eye"></i> Supprimer</button>
+                                                
                                             </td>
                                         </tr>
                                     )}

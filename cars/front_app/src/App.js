@@ -5,7 +5,7 @@ import React from 'react';
 // import Footer from './components/Footer'
 // import Contact from './components/Contact'
 // import AddModel from './components/admin/AddModel'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import ClientPage from './components/customer/customerPage/ClientPage'
 import AdminPage from './components/admin/AdminPage'
 import Delete from './components/admin/Delete'

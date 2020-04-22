@@ -23,7 +23,9 @@ class AddCar extends Component {
             NombreDePlaces : "",
             cylindree : "",
             UrlCarPass : "",
-            prix : ""
+            prix : "",
+            kilometrage : "",
+            selectedFile : null
          }
          
     }
@@ -48,6 +50,10 @@ class AddCar extends Component {
             console.log(response);
           })
           .then(() => this.props.history.push('/adminpage'))
+    }
+
+    fileSelected = (event) => {
+        this.setState({ selectedFile : event.target.files[0]  });
     }
 
     render() { 
@@ -171,7 +177,10 @@ class AddCar extends Component {
                         </div>
                         <div class="container-fluid">
                             <h2 class="py-3">Photo</h2>
-                        
+                            <div>
+                                <input type="file" onChange={this.fileSelected}></input>
+                            </div>
+                            
                         </div>
                         <div class="container-fluid">
                             <h2 class="py-3">Description</h2>

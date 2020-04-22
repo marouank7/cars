@@ -22,8 +22,7 @@ class ModelesPage extends Component {
                         </div>
                     </div>
                 </div>
-                <CardCar model="Mercedes" kilometrage="152000 Km" annee="2016" etiquette="Euro 1" co2 = "99 g/km" garantie="6 mois" photo={Mercedes}/>
-                <CardCar photo={Porsche}/>        
+                        
             </div>
          );
     }

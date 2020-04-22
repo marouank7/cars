@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import './AdminPage.css'
+
 
 class AdminPage extends Component {
     constructor(props) {
@@ -24,7 +26,7 @@ class AdminPage extends Component {
             this.setState({ listCars : response.data})
             // this.setState({ movies : response.data.movies})
             console.log("iciiii",response.data)
-            console.log('this.state', this.state.listCars[0])
+            console.log('this.state.listCars555555', this.state.listCars)
             
         })
         .catch((error) => {
@@ -81,25 +83,19 @@ class AdminPage extends Component {
                                             <td>{propsCar.modele}</td>
                                             <td>{propsCar.prix}</td>
                                             <td style={{width:"350px"}}>
-                                                <Link to="/viewpage" class="btn btn-light"><i class="far fa-eye"></i> Voir</Link>
+
+                                                <Link to={{ 
+                                                    pathname : "/viewpage",
+                                                    state : {...propsCar}
+                                                }}
+                                                    class="btn btn-light"
+                                                ><i class="far fa-eye"></i> Voir</Link>
+
                                                 <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>
                                                 <button to="/delete" class="btn btn-danger ml-2" onClick={() => this.removeCars(propsCar.id)} ><i class="far fa-eye"></i> Supprimer</button>
-                                                
                                             </td>
                                         </tr>
                                     )}
-                            
-                                {/* <tr>
-                                    <td>Id</td>
-                                    <td>Description 1</td>
-                                    <td>Prix 1</td>
-                                    <td>Catégorie 1</td>
-                                    <td style={{width:"350px"}}>
-                                        <Link to="/viewpage" class="btn btn-light"><i class="far fa-eye"></i> Voir</Link>
-                                        <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>
-                                        <Link to="/delete" class="btn btn-danger ml-2"><i class="far fa-eye"></i> Supprimer</Link>
-                                    </td>
-                                </tr> */}
                             </tbody>
                         </table>
                     </div>
@@ -111,4 +107,4 @@ class AdminPage extends Component {
     }
 }
  
-export default AdminPage;
+export default withRouter(AdminPage);

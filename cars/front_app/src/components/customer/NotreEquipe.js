@@ -14,10 +14,8 @@ class NotreEquipe extends Component {
                 
                 <div class="container container2">
                     <h2 class="text-center pt-5">L'ÉQUIPE</h2>
+                    <hr style={{width:"40px", height:"2px" ,backgroundColor :"#340809"}}/>
                     <p class="text-center pt-5 pb-5">Nous des jzidjozeijfoiezhfohzefohezohfoiezhfioehfheozifhoiezfoezoifhoiehfoiefheozihfoiehf</p>
-                </div>
-                <div class="container-fluid separationEqupieContact" >
-                    
                 </div>
 
             </section>

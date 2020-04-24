@@ -82,6 +82,30 @@ app.delete('/api/getcar/:id', (req, res) => {
   });
 });
 
+// écoute de l'url "/api/employees"
+app.put('/api/getcar/:id', (req, res) => {
+
+console.log('je suis dans serveur update')
+  // récupération des données envoyées
+  const idCars = req.params.id;
+  const formData = req.body;
+
+  // connection à la base de données, et insertion de l'employé
+  connection.query('UPDATE caracteristiques SET ? WHERE id = ?', [formData, idCars], err => {
+
+  if (err) {
+      // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
+      console.log(err);
+      res.status(500).send("Erreur lors de la modification d'un employé");
+  } else {
+
+      // Si tout s'est bien passé, on envoie un statut "ok".
+      res.sendStatus(200);
+  }
+  });
+});
+
+
 app.listen(port, (err) => {
   if (err) {
     throw new Error('Something bad happened...');

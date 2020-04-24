@@ -5,6 +5,7 @@ import HeroHeader from '../HeroHeader'
 import Footer from '../Footer'
 import Contact from '../Contact'
 import NotreEquipe from '../NotreEquipe'
+import BreakImage from '../BreakImage'
 
 class clientPage extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class clientPage extends Component {
                 <HeroHeader/>
                 <ModelesPage/>
                 <NotreEquipe/>
+                <BreakImage/>
                 <Contact/>
                 <Footer/>
             </>

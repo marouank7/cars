@@ -11,11 +11,9 @@ class CardCar extends Component {
     }
     render() { 
         const {
-
-            id, marque, modele, prix, DescriptionText, carburant,
-            classeEmission, carrosserie, portes, transmission, couleur, interieur,
-            co2, NombreDePlaces, cylindree, UrlCarPass, kilometrage, AnneeDeFabrication
-
+                id, marque, modele, prix, DescriptionText, carburant,
+                classeEmission, carrosserie, portes, transmission, couleur, interieur,
+                co2, NombreDePlaces, cylindree, UrlCarPass, kilometrage, AnneeDeFabrication
             } = this.props.location.state
 
         return ( 
@@ -26,9 +24,11 @@ class CardCar extends Component {
                             <Carousel/>
                             {/* <img src={photo} alt="voiture" class="img-fluid w-50 mb-3" ></img> */}
                             {/* <img src="img/visage1.jpg" alt="visage" class="img-fluid rounded-circle w-50 mb-3"> */}
+                            <div class="py-3">
                             <h3 class="text-muted"><strong>Marque: </strong> {marque}</h3>
                             <h4 class="text-muted"><strong>Modèle: </strong> {modele}</h4>
                             <h4 class="text-muted"><strong>Prix: </strong> {prix}</h4>
+                            </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="col-lg-3">
                                     <h5 class="text-muted"><strong>Carburant: </strong> {carburant}</h5>

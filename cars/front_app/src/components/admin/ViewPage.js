@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import CardCar from '../customer/CardCar'
+import './ViewPage.css'
 
 class ViewPage extends Component {
     constructor(props) {
@@ -15,12 +16,19 @@ class ViewPage extends Component {
     
     render(){ 
 
-        const {id, marque, modele, prix} = this.props.location.state
-        console.log("about666", this.props.location.state)
+        // const {id, marque, modele, prix} = this.props.location.state
+        // console.log("about666", this.props.location.state)
         
         return ( 
+            <section class="admin1">
+                <h1>Salut</h1>
+                <div class="container admin2">
+                    <CardCar/>
+                </div>
+            </section>
+                
+           
             
-            <CardCar model={modele}/>
          );
     }
 }

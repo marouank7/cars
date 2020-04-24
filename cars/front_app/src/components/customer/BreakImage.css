@@ -1,15 +1,4 @@
-.container1{
-    background-color: #340809 ;
-    
-}
-
-.container2{
-    background-color: #e0d3be ;
-    margin-top: 100px;
-    margin-bottom: 300px;
-}
-
-.separationEqupieContact{
+.break{
     background-image: url('../../img/intBMW.webp');
     background-size: cover;
     background-attachment: fixed;
@@ -18,4 +7,3 @@
     margin: 0;
     padding: 0;
 }
-

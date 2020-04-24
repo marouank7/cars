@@ -47,13 +47,16 @@ class AdminPage extends Component {
       })
     }
 
-    // delete = (index) => {
-    //     const NewListCars = this.state.listCars;
-    //     NewListCars.splice(index, 1);
-    //     this.setState({
-    //         listCars : NewListCars
-    //     })
-    // }
+    UpdateCars = (id) =>{
+        axios.put(`http://localhost:3005/api/getcar/${id}`)
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
 
     render() { 
         
@@ -91,7 +94,7 @@ class AdminPage extends Component {
                                                     class="btn btn-light"
                                                 ><i class="far fa-eye"></i> Voir</Link>
 
-                                                <Link to="/update" class="btn btn-primary ml-2"><i class="fas fa-pencil-alt"></i> Modifier</Link>
+                                                <button to="/update" class="btn btn-primary ml-2" onClick={() => this.UpdateCars(propsCar.id)}><i class="fas fa-pencil-alt"></i> Modifier</button>
                                                 <button to="/delete" class="btn btn-danger ml-2" onClick={() => this.removeCars(propsCar.id)} ><i class="far fa-eye"></i> Supprimer</button>
                                             </td>
                                         </tr>

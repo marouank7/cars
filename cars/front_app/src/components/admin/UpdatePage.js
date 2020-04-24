@@ -6,11 +6,13 @@ class Update extends Component {
         super(props);
         this.state = {  }
     }
-    render() { 
-        return ( 
-            <AddCar tritrePage2="MODIFIER VOITURE"/>
-         );
+
+        
+        render() { 
+            return ( 
+                <AddCar tritrePage2="MODIFIER VOITURE"/>
+            );
+        }
     }
-}
  
 export default Update;

@@ -25,7 +25,7 @@ class AddCar extends Component {
             UrlCarPass : "",
             prix : "",
             kilometrage : "",
-            selectedFile : null
+            
          }
          
     }
@@ -40,26 +40,39 @@ class AddCar extends Component {
     }
 
 
-
     postCar = () => {
 
         axios.post('http://localhost:3005/api/getcar', 
             this.state 
           )
           .then(function (response) {
-            console.log(response);
+            console.log("response post",response);
           })
           .then(() => this.props.history.push('/adminpage'))
     }
 
-    fileSelected = (event) => {
-        this.setState({ selectedFile : event.target.files[0]  });
+    UpdateCars = (id) =>{
+        axios.put(`http://localhost:3005/api/getcar/${id}`)
+        .then((res) => {
+            console.log(res.data)
+            console.log("axiosPut", res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     }
+
+    // fileSelected = (event) => {
+    //     this.setState({ selectedFile : event.target.files[0]  });
+    // }
 
     render() { 
         // if(this.state.adminpage === true){
         //    return <Redirect to='/adminpage'/>
         // }
+        // console.log("je suis dans add cars je teste ma props", this.props.location.state.id)
+
+        
 
         const {tritrePage2} = this.props
         
@@ -223,6 +236,7 @@ class AddCar extends Component {
                         </div>
                         <div class="container text-center py-5">
                             <button to="adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</button>
+                            {/* <button to="adminpage" class="btn btn-lg save text-light ml-2" onClick={this.UpdateCars(this.props.location.state.id)}><i class="far fa-save"></i> Update</button> */}
                             {/* <Link to="/adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</Link> */}
                         </div>
                         

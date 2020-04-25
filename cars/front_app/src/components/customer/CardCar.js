@@ -16,6 +16,8 @@ class CardCar extends Component {
                 co2, NombreDePlaces, cylindree, UrlCarPass, kilometrage, AnneeDeFabrication
             } = this.props.location.state
 
+            console.log("this.props.location.state", this.props.location.state)
+
         return ( 
             <section id="modeles" class="my-5 text-center">
                 <div class="row">

@@ -13,7 +13,8 @@ class Contact extends Component {
                 <div class="container ">
                     <div class="container p-5 backgroundForm2">
 
-                    <h2 class="titreContact text-center mb-5 fontText">Nous Contacter</h2>
+                    <h2 class="titreContact text-center mb-1 fontText">Nous Contacter</h2>
+                    <hr class="mb-5" style={{width:"40px", height:"2px", backgroundColor :"#340809"}}/>
                         <div class="row">
                             <div class="col-10 mx-auto"> 
                                 <form id="contact-form" role="form" action="https://formspree.io/marouan_k@live.be" method="POST">

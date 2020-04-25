@@ -12,6 +12,8 @@ import Delete from './components/admin/Delete'
 import UpdatePage from './components/admin/UpdatePage'
 import ViewPage from './components/admin/ViewPage'
 import AddCarPage from './components/admin/AddCarPage'
+import AddCar from './components/admin/AddCar'
+import ModelesPage from './components/customer/customerPage/ModelesPage'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route exact path="/update" component={UpdatePage}/>
         <Route exact path="/viewpage" component={ViewPage}/>
         <Route exact path="/addcarpage" component={AddCarPage}/>
+        <Route exact path="/addcar" component={AddCar}/>
+        <Route exact path="/modelespage" component={ModelesPage}/>
       </Router>
     </div>
   );

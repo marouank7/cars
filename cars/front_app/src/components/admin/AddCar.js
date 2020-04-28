@@ -30,6 +30,7 @@ class AddCar extends Component {
          
     }
 
+
     updateField = (event) => {
         this.setState({[event.target.id] : event.target.value});
     }
@@ -51,7 +52,29 @@ class AddCar extends Component {
           .then(() => this.props.history.push('/adminpage'))
     }
 
-    UpdateCars = (id) =>{
+    componentDidMount(){
+        this.getCarToBeUpdate(this.props.location.state.id)
+        console.log('thisId',this.props.location.state.id)
+    }
+
+    getCarToBeUpdate = (id) => {
+        axios.get(`http://localhost:3005/api/getcar/${id}`)
+        .then((response) => {
+            // handle success
+            console.log("response333",response)
+            console.log("iciiii444",response.data)
+               
+        })
+        .catch((error) => {
+            // handle error
+            console.log(error);
+        })
+        .finally(() => {
+            // always executed
+        });
+    };
+
+    UpdateCar = (id) =>{
         axios.put(`http://localhost:3005/api/getcar/${id}`)
         .then((res) => {
             console.log(res.data)
@@ -70,6 +93,11 @@ class AddCar extends Component {
         // if(this.state.adminpage === true){
         //    return <Redirect to='/adminpage'/>
         // }
+
+        // const {id} = this.props.location.state
+
+        // console.log("Iddd", id)
+
         // console.log("je suis dans add cars je teste ma props", this.props.location.state.id)
 
         

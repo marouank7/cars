@@ -50,6 +50,7 @@ console.log('je suis dans mon serveur')
 // respond to requests on `/api/employees`
 app.get('/api/getcar', (req, res) => {
   // send an SQL query to get all employees
+  console.log('je suis dans mon getAddCartobe')
   connection.query('SELECT * FROM caracteristiques', (err, results) => {
     if (err) {
       // If an error has occurred, then the client is informed of the error
@@ -104,6 +105,33 @@ console.log('je suis dans serveur update')
   }
   });
 });
+
+// écoute de l'url "/api/employees"
+app.get('/api/getcar/:id', (req, res) => {
+
+  console.log('je suis dans serveur getById')
+    // récupération des données envoyées
+    const idCars = req.params.id;
+    // const formData = req.body;
+    console.log("idCars", idCars)
+    // console.log("formData", formData)
+  
+    // connection à la base de données, et insertion de l'employé
+    connection.query(`SELECT * From caracteristiques WHERE id = ${idCars}`,(err, results) => {
+  
+    if (err) {
+        // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
+        console.log(err);
+        res.status(500).send("Erreur lors de la modification d'un employé");
+    } else {
+  
+        // Si tout s'est bien passé, on envoie un statut "ok".
+        res.json(results);
+    }
+    });
+  });
+
+
 
 
 app.listen(port, (err) => {

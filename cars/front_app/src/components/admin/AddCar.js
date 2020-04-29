@@ -37,7 +37,7 @@ class AddCar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // this.postCar()
+        this.postCar()
         this.UpdateCar(this.props.location.state.id)
     }
 
@@ -65,8 +65,8 @@ class AddCar extends Component {
             // console.log("stateActuel",this.state)
             this.setState(response.data[0]);
             console.log("stateUpdate", this.state)
-               
         })
+        
         .catch((error) => {
             // handle error
             console.log(error);
@@ -82,6 +82,7 @@ class AddCar extends Component {
             console.log(res.data)
             console.log("axiosPut", res.data)
         })
+        .then(() => this.props.history.push('/adminpage'))
         .catch((err) => {
             console.log(err)
         })

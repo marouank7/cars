@@ -37,15 +37,14 @@ class AddCar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.postCar()
+        // this.postCar()
+        this.UpdateCar(this.props.location.state.id)
     }
 
 
     postCar = () => {
 
-        axios.post('http://localhost:3005/api/getcar', 
-            this.state 
-          )
+        axios.post('http://localhost:3005/api/getcar', this.state)
           .then(function (response) {
             console.log("response post",response);
           })
@@ -61,8 +60,11 @@ class AddCar extends Component {
         axios.get(`http://localhost:3005/api/getcar/${id}`)
         .then((response) => {
             // handle success
-            console.log("response333",response)
-            console.log("iciiii444",response.data)
+            // console.log("response333",response)
+            console.log("iciiii444",response.data[0])
+            // console.log("stateActuel",this.state)
+            this.setState(response.data[0]);
+            console.log("stateUpdate", this.state)
                
         })
         .catch((error) => {
@@ -73,9 +75,9 @@ class AddCar extends Component {
             // always executed
         });
     };
-
+    
     UpdateCar = (id) =>{
-        axios.put(`http://localhost:3005/api/getcar/${id}`)
+        axios.put(`http://localhost:3005/api/getcar/${id}`, this.state)
         .then((res) => {
             console.log(res.data)
             console.log("axiosPut", res.data)

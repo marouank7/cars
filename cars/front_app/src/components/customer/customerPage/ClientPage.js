@@ -5,6 +5,7 @@ import HeroHeader from '../HeroHeader'
 import Footer from '../Footer'
 import Contact from '../Contact'
 import NotreEquipe from '../NotreEquipe'
+import Services from '../Services'
 import BreakImage from '../BreakImage'
 
 class clientPage extends Component {
@@ -17,6 +18,7 @@ class clientPage extends Component {
             <>
                 <NavBar/>
                 <HeroHeader/>
+                <Services/>
                 <ModelesPage/>
                 <NotreEquipe/>
                 <BreakImage/>

@@ -46,7 +46,7 @@ class ModelesPage extends Component {
                 <div class="row">
                     <div class="col">
                         <div class="info-header">
-                            <h2>Nos modèles</h2>
+                            <h2 id="NosModeles">Nos modèles</h2>
                             <hr class="mb-5" style={{width:"40px", height:"2px" ,backgroundColor :"#340809"}}/>
                             <p class="lead">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga quasi quaerat iusto consequuntur laboriosam!

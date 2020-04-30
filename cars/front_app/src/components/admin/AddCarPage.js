@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom';
 import AddCar from './AddCar'
 
 class Update extends Component {
@@ -7,10 +8,11 @@ class Update extends Component {
         this.state = {  }
     }
     render() { 
+        // console.log('thisId',this.props.location.state.id)
         return ( 
-            <AddCar tritrePage2="AJOUTER UNE VOITURE"/>
+             <AddCar tritrePage2="AJOUTER UNE VOITURE"/>
          );
     }
 }
  
-export default Update;
+export default withRouter(Update);

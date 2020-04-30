@@ -24,8 +24,7 @@ class AddCar extends Component {
             cylindree : "",
             UrlCarPass : "",
             prix : "",
-            kilometrage : "",
-            
+            kilometrage : "",      
          }
          
     }
@@ -37,23 +36,30 @@ class AddCar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        // return (this.state.marque === "" ? this.postCar() : this.UpdateCar(this.props.location.state.id)); 
+        // if(!this.props.location.state.id){
+        //     this.postCar()
+        // }else{
+        //     this.UpdateCar(this.props.location.state.id)
+        // }
         this.postCar()
         this.UpdateCar(this.props.location.state.id)
     }
 
 
-    postCar = () => {
-
-        axios.post('http://localhost:3005/api/getcar', this.state)
-          .then(function (response) {
-            console.log("response post",response);
-          })
-          .then(() => this.props.history.push('/adminpage'))
-    }
+    
 
     componentDidMount(){
-        this.getCarToBeUpdate(this.props.location.state.id)
-        console.log('thisId',this.props.location.state.id)
+    
+        // return (this.state.marque === "" ? console.log("george") : console.log('thisIIIIDDD',this.props.location.state.id));
+        // return console.log('thisIIIIDDD',this.props.location.state.id)
+       if(!this.props.location.state.id){
+            return console.log("je suis pas dans update") 
+       }else{
+            return this.getCarToBeUpdate(this.props.location.state.id)
+       }
+        
+        // console.log('thisId',this.props.location.state.id)
     }
 
     getCarToBeUpdate = (id) => {
@@ -88,6 +94,15 @@ class AddCar extends Component {
         })
     }
 
+    postCar = () => {
+
+        axios.post('http://localhost:3005/api/getcar', this.state)
+          .then(function (response) {
+            console.log("response post",response);
+          })
+          .then(() => this.props.history.push('/adminpage'))
+    }
+
     // fileSelected = (event) => {
     //     this.setState({ selectedFile : event.target.files[0]  });
     // }
@@ -102,6 +117,8 @@ class AddCar extends Component {
         // console.log("Iddd", id)
 
         // console.log("je suis dans add cars je teste ma props", this.props.location.state.id)
+
+        console.log("stateeeeee", this.state.marque)
 
         
 

@@ -14,6 +14,7 @@ import ViewPage from './components/admin/ViewPage'
 import AddCarPage from './components/admin/AddCarPage'
 import AddCar from './components/admin/AddCar'
 import ModelesPage from './components/customer/customerPage/ModelesPage'
+import NotreEquipe from './components/customer/NotreEquipe'
 
 function App() {
   return (

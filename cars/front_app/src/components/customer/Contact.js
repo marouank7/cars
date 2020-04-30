@@ -70,30 +70,47 @@ class Contact extends Component {
                                             {/* <h6 id="validePrenom">Vous devez inscire votre prénom.</h6> */}
 
                                             <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                </div>
                                                 <input type="text" id="form_nom" class="form-control" name="nom" placeholder="Nom" required="required"/>
+                                                <div class="input-group-prepend">
+                                                </div>
                                             </div>
 
                                             {/* <h6 id="valideNom">Vous devez inscrire votre Nom.</h6> */}
 
                                             <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                </div>
                                                 <input type="email" id="form_email" class="form-control" name="email" placeholder="Email" required="required"/>
+                                                <div class="input-group-prepend">
+                                                </div>
                                             </div>
 
                                             {/* <h6 id="valideEmail">Votre email n'est pas valide.</h6> */}
                                             
                                             <div class="input-group mb-3">
-                                                    <input type="number" id="form_phone" class="form-control" name="phone" placeholder="Téléphone"/>
+                                                <div class="input-group-prepend">
+                                                </div>
+                                                <input type="number" id="form_phone" class="form-control" name="phone" placeholder="Téléphone"/>
+                                                <div class="input-group-prepend">
+                                                </div>
                                             </div>
                                             
                                             <div class="input-group mb-3">
-                                                <textarea class="form-control" name="message" id="form_message" rows="4" required="required"  placeholder="Message"></textarea>
                                                 <div class="input-group-prepend">
-                                                    <div class="input-group-text">*</div>
+                                                </div>
+                                                <textarea class="form-control" name="message" id="form_message" rows="4" required="required"  placeholder="Message"></textarea>
+                                                 <div class="input-group-prepend">
                                                 </div>
                                             </div>
                                             {/* <h6 id="valideMessage">Votre message doit contenir plus de 10 caractères.</h6> */}
                                             <div class="text-center">
-                                                <input type="submit" class="btn btn-success btn-send mt-3" value="Envoyez" id="submitt"/>                                  
+                                                <div class="input-group-prepend">
+                                                </div>
+                                                <input type="submit" class="btn btn-send mt-3 text-light" style={{background : "#340809", borderRadius : "0%"}} value="Envoyez" id="submitt"/>
+                                                <div class="input-group-prepend">
+                                                </div>                                  
                                             </div>
                                             
 

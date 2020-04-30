@@ -18,13 +18,13 @@ class NavBar extends Component {
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav w-100 d-flex justify-content-center align-items-center">
                         <li class="nav-item">
-                            <a href="#accueil" class="nav-link buttonNav">Accueil</a>
+                            <a href="#HeroHeader" class="nav-link buttonNav">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#portfolio" class="nav-link buttonNav">Portefolio</a>
+                            <a href="#NosModeles" class="nav-link buttonNav">Nos Modèles</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#about" class="nav-link buttonNav">À Propos</a>
+                            <a href="#equipe" class="nav-link buttonNav">L'équipe</a>
                         </li>
                         <li class="nav-item">
                             <a href="#services" class="nav-link buttonNav">Services</a>

@@ -55,6 +55,7 @@ class AdminPage extends Component {
                 <div class="container-fluid admin2">
                     <div class="row">
                         <h1><strong>Liste des items    </strong><Link to="addcarpage" class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Ajouter</Link></h1>
+                        {/* to={{pathname:"/addcarpage", state:{...this.state.listCars}}} */}
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -82,6 +83,13 @@ class AdminPage extends Component {
                                                 }}
                                                     class="btn btn-light"
                                                 ><i class="far fa-eye"></i> Voir</Link>
+{/* 
+                                                <Link to={{ 
+                                                    pathname : "/addcarpage",
+                                                    state : {...propsCar}
+                                                }}
+                                                ></Link> */}
+
                                                 <Link 
                                                     to={{
                                                     pathname :"/addcar",

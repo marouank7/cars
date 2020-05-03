@@ -8,6 +8,9 @@ class Update extends Component {
         this.state = {  }
     }
     render() { 
+
+        console.log("this.props.editM",this.props.editM)
+
         // console.log('thisId',this.props.location.state.id)
         return ( 
              <AddCar tritrePage2="AJOUTER UNE VOITURE"/>

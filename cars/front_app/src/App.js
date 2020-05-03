@@ -26,8 +26,9 @@ function App() {
         <Route exact path="/update" component={UpdatePage}/>
         <Route exact path="/viewpage" component={ViewPage}/>
         <Route exact path="/addcarpage" component={AddCarPage}/>
+        <Route exact path="/create-a-car" component={AddCar}/>
+        <Route exact path="/update-a-car" component={AddCar}/>
         <Route exact path="/addcar" component={AddCar}/>
-        <Route exact path="/modelespage" component={ModelesPage}/>
       </Router>
     </div>
   );

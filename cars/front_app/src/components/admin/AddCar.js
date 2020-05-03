@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios'
 import './AddCar.css'
@@ -24,7 +23,7 @@ class AddCar extends Component {
             cylindree : "",
             UrlCarPass : "",
             prix : "",
-            kilometrage : "",      
+            kilometrage : "",     
          }
          
     }
@@ -36,30 +35,14 @@ class AddCar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // return (this.state.marque === "" ? this.postCar() : this.UpdateCar(this.props.location.state.id)); 
-        // if(!this.props.location.state.id){
-        //     this.postCar()
-        // }else{
-        //     this.UpdateCar(this.props.location.state.id)
-        // }
-        this.postCar()
-        this.UpdateCar(this.props.location.state.id)
+         return (this.props.location.state.id === false ? this.postCar() : this.UpdateCar(this.props.location.state.id));
     }
 
-
+    
     
 
     componentDidMount(){
-    
-        // return (this.state.marque === "" ? console.log("george") : console.log('thisIIIIDDD',this.props.location.state.id));
-        // return console.log('thisIIIIDDD',this.props.location.state.id)
-       if(!this.props.location.state.id){
-            return console.log("je suis pas dans update") 
-       }else{
-            return this.getCarToBeUpdate(this.props.location.state.id)
-       }
-        
-        // console.log('thisId',this.props.location.state.id)
+        this.getCarToBeUpdate(this.props.location.state.id)
     }
 
     getCarToBeUpdate = (id) => {
@@ -95,7 +78,6 @@ class AddCar extends Component {
     }
 
     postCar = () => {
-
         axios.post('http://localhost:3005/api/getcar', this.state)
           .then(function (response) {
             console.log("response post",response);
@@ -103,20 +85,10 @@ class AddCar extends Component {
           .then(() => this.props.history.push('/adminpage'))
     }
 
-    // fileSelected = (event) => {
-    //     this.setState({ selectedFile : event.target.files[0]  });
-    // }
+    
 
     render() { 
-        // if(this.state.adminpage === true){
-        //    return <Redirect to='/adminpage'/>
-        // }
-
-        // const {id} = this.props.location.state
-
-        // console.log("Iddd", id)
-
-        // console.log("je suis dans add cars je teste ma props", this.props.location.state.id)
+       
 
         console.log("stateeeeee", this.state.marque)
 

@@ -2,13 +2,18 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import ReactDOM from "react-dom";
+
+// import AddCar from './AddCar'
 import './AdminPage.css'
 
 
 class AdminPage extends Component {
     constructor(props) {
         super(props);
+        // this.AddCarElement = React.createRef();
         this.state = { 
+            // editM : false,
             listCars : []
          }
     }
@@ -46,6 +51,11 @@ class AdminPage extends Component {
             this.getDataAddCar()
       })
     }
+    
+    // changeEditM = () => {
+    //     this.setState({ editM : true });
+    //     console.log("this.state.editM",this.state.editM)
+    // }
 
     render() { 
         
@@ -54,7 +64,7 @@ class AdminPage extends Component {
                 <h1 class="text-center py-5 text-light">Sanders cars</h1>
                 <div class="container-fluid admin2">
                     <div class="row">
-                        <h1><strong>Liste des items    </strong><Link to="addcarpage" class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Ajouter</Link></h1>
+                        <h1><strong>Liste des items    </strong><Link to={{pathname : "/create-a-car", state : {id :false} }} class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Ajouter</Link></h1>
                         {/* to={{pathname:"/addcarpage", state:{...this.state.listCars}}} */}
                         <table class="table table-striped table-bordered">
                             <thead>
@@ -92,10 +102,11 @@ class AdminPage extends Component {
 
                                                 <Link 
                                                     to={{
-                                                    pathname :"/addcar",
+                                                    pathname :"/update-a-car",
                                                     state : {...propsCar}
                                                     }} 
                                                     class="btn btn-primary ml-2">
+                                                    
                                                 <i class="fas fa-pencil-alt"></i> Modifier</Link>
 
                                                 <button to="/delete" class="btn btn-danger ml-2" onClick={() => this.removeCars(propsCar.id)} ><i class="far fa-eye"></i> Supprimer</button>

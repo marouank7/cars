@@ -23,7 +23,7 @@ class Services extends Component {
                     </div>
                     <div class="col-md-6">
                         <img src={dep} style={{width : "150px", height : "150px"}}></img>
-                        <h4 style={{color:"white"}}>Vente</h4>
+                        <h4 style={{color:"white"}}>Dépannage</h4>
                         <p style={{color:"white"}}>eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
                     </div>
                 </div>

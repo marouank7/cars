@@ -85,92 +85,93 @@ class AddCar extends Component {
           .then(() => this.props.history.push('/adminpage'))
     }
 
+    fileSelected = (event) => {
+        console.log(event)
+    }
+
     
 
     render() { 
-       
 
-        console.log("stateeeeee", this.state.marque)
-
-        
-
+        console.log("thisPropspspspssp",this.state)
+    
         const {tritrePage2} = this.props
         
         const listCaracteristique = [
             {
                 label : "Marque",
                 id: "marque",
-                placeholder : "Marque"
+                placeholder : this.state.marque
             },
             {
                 label : "Modèle",
                 id: "modele",
-                placeholder : "Modèle"
+                placeholder : this.state.modele
             },
             {
                 label : "Carburant",
                 id: "carburant",
-                placeholder : "Carburant"
+                placeholder : this.state.carburant
             },
             {
                 label : "Classe d'émission",
                 id: "classeEmission",
-                placeholder : "Classe d'émission"
+                placeholder : this.state.classeEmission
             },
             {
                 label : "Carrosserie",
                 id: "carrosserie",
-                placeholder : "Carrosserie"
+                placeholder : this.state.carrosserie
             },
             {
                 label : "Portes",
                 id: "portes",
-                placeholder : "Portes"
+                placeholder : this.state.portes
             },
             {
                 label : "Transmission",
                 id: "transmission",
-                placeholder : "Transmission"
+                placeholder : this.state.transmission
             },
             {
                 label : "Couleur",
                 id: "couleur",
-                placeholder : "Couleur"
+                placeholder : this.state.couleur
             },
             {
                 label : "Intérieur",
                 id: "interieur",
-                placeholder : "Intérieur"
+                placeholder : this.state.interieur
             },
             {
                 label : "Année de fabrication",
                 id: "AnneeDeFabrication",
-                placeholder : "Année de fabrication"
+                placeholder : this.state.AnneeDeFabrication
             },
             {
                 label : "CO2",
                 id: "co2",
-                placeholder : "CO2"
+                placeholder : this.state.co2
             },
             {
                 label : "Kilométrage",
                 id: "kilometrage",
-                placeholder : "Kilométrage"
+                placeholder : this.state.kilometrage
             },
             {
                 label : "Nombre de places",
                 id: "NombreDePlaces",
-                placeholder : "Nombre de places"
+                placeholder : this.state.NombreDePlaces
             },
             {
                 label : "Cylindrée",
                 id: "cylindree",
-                placeholder : "Cylindrée"
+                placeholder : this.state.cylindree
             },
             {
                 label : "L'url du relevé de Car-Pass",
                 id: "UrlCarPass",
-                placeholder : "L'url du relevé de Car-Pass"
+                placeholder : this.state.UrlCarPass
             }
         ]
 
@@ -218,7 +219,7 @@ class AddCar extends Component {
                         <div class="container-fluid">
                             <h2 class="py-3">Description</h2>
                             <div>
-                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder="Description" onChange={this.updateField}></textarea>
+                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder={this.state.DescriptionText} onChange={this.updateField}></textarea>
                             </div>
                             
                         </div>
@@ -252,7 +253,7 @@ class AddCar extends Component {
                     
                         <div class="container-fluid">
                             <h2 class="py-3">Prix</h2>
-                            <input type="text" class="form-control" id="prix" placeholder="Prix" onChange={this.updateField}/>
+                            <input type="text" class="form-control" id="prix" placeholder={this.state.prix} onChange={this.updateField}/>
                         </div>
                         <div class="container text-center py-5">
                             <button to="adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</button>

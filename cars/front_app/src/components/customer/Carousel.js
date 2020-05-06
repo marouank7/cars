@@ -7,10 +7,7 @@ import './Carousel.css'
 
 
 class Carousel extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+    
     render() { 
         return ( 
             <div class="container">

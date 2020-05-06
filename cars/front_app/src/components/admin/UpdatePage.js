@@ -3,13 +3,7 @@ import { withRouter } from 'react-router-dom'
 import AddCar from './AddCar'
 
 class Update extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-
-
-        
+  
         render() { 
             console.log("dataUpdate", )
             return ( 

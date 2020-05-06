@@ -5,10 +5,7 @@ import Carousel from './Carousel'
 
 
 class CardCar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+    
     render() { 
         const {
                 id, marque, modele, prix, DescriptionText, carburant,

@@ -9,10 +9,7 @@ import Services from '../Services'
 import BreakImage from '../BreakImage'
 
 class clientPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+   
     render() { 
         return ( 
             <>

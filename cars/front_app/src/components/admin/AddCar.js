@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
+import OptionsCar from './OptionsCar'
+import TitrePage from './TitrePage'
+import UploadPic from './UploadPic'
+import InputCar from './InputCar'
+import DescriptiveText from './DescriptiveText'
+import Price from './Price'
 import axios from 'axios'
 import './AddCar.css'
 
@@ -7,31 +13,26 @@ class AddCar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedFiled : null,
-            DescriptionText : "",
-            marque : "",
-            modele : "",
-            carburant : "",
-            classeEmission : "",
-            carrosserie : "",
-            portes : "",
-            transmission : "",
-            couleur : "",
-            interieur : "",
-            AnneeDeFabrication : "",
+            // selectedFiled : null,
+            descriptiveText : "",
+            brand : "",
+            model : "",
+            fuel : "",
+            EmissionClass : "",
+            bodyCar : "",
+            doors : "",
+            gearbox : "",
+            color : "",
+            interior : "",
+            year : "",
             co2 : "",
-            NombreDePlaces : "",
-            cylindree : "",
+            carSeat : "",
+            power : "",
             UrlCarPass : "",
-            prix : "",
-            kilometrage : "",     
+            price : "",
+            kilometer : "",     
          }
          
-    }
-
-    fileSelectedHandler = (event) => {
-        this.setState({ selectedFiled : event.target.files[0] });
-        console.log(event.target.files[0])
     }
 
     updateField = (event) => {
@@ -90,104 +91,86 @@ class AddCar extends Component {
         const listCaracteristique = [
             {
                 label : "Marque",
-                id: "marque",
-                placeholder : this.state.marque
+                name: "marque",
+                placeholder : this.state.brand
             },
             {
                 label : "Modèle",
-                id: "modele",
-                placeholder : this.state.modele
+                name: "modele",
+                placeholder : this.state.model
             },
             {
                 label : "Carburant",
-                id: "carburant",
-                placeholder : this.state.carburant
+                name: "carburant",
+                placeholder : this.state.fuel
             },
             {
                 label : "Classe d'émission",
-                id: "classeEmission",
-                placeholder : this.state.classeEmission
+                name: "classeEmission",
+                placeholder : this.state.EmissionClass
             },
             {
                 label : "Carrosserie",
-                id: "carrosserie",
-                placeholder : this.state.carrosserie
+                name: "carrosserie",
+                placeholder : this.state.bodyCar
             },
             {
                 label : "Portes",
-                id: "portes",
-                placeholder : this.state.portes
+                name: "portes",
+                placeholder : this.state.doors
             },
             {
                 label : "Transmission",
-                id: "transmission",
-                placeholder : this.state.transmission
+                name: "transmission",
+                placeholder : this.state.gearbox
             },
             {
                 label : "Couleur",
-                id: "couleur",
-                placeholder : this.state.couleur
+                name: "couleur",
+                placeholder : this.state.color
             },
             {
                 label : "Intérieur",
-                id: "interieur",
-                placeholder : this.state.interieur
+                name: "interieur",
+                placeholder : this.state.interior
             },
             {
                 label : "Année de fabrication",
-                id: "AnneeDeFabrication",
-                placeholder : this.state.AnneeDeFabrication
+                name: "AnneeDeFabrication",
+                placeholder : this.state.year
             },
             {
                 label : "CO2",
-                id: "co2",
+                name: "co2",
                 placeholder : this.state.co2
             },
             {
                 label : "Kilométrage",
-                id: "kilometrage",
-                placeholder : this.state.kilometrage
+                name: "kilometrage",
+                placeholder : this.state.kilometer
             },
             {
                 label : "Nombre de places",
-                id: "NombreDePlaces",
-                placeholder : this.state.NombreDePlaces
+                name: "NombreDePlaces",
+                placeholder : this.state.carSeat
             },
             {
                 label : "Cylindrée",
-                id: "cylindree",
-                placeholder : this.state.cylindree
+                name: "cylindree",
+                placeholder : this.state.power
             },
             {
                 label : "L'url du relevé de Car-Pass",
-                id: "UrlCarPass",
-                placeholder : this.state.UrlCarPass
+                name: "UrlCarPass",
+                placeholder : this.state.urlCarPass
             }
         ]
 
-        const listCheckBox = [{option : "4x4", id : 1 }, {option : "ABS", id : 2 }, {option : "Phares directionnels", id : 3  }, {option : "Régulateur de distance" },
-         {option : "Airbags" }, {option : "Air conditionné" }, {option : "Alarme" }, {option : "Intérieur cuir" },
-         {option : "Bluetooth" }, {option : "Ordinateur de bord" }, {option : " Verrouillage central" }, {option : "Air conditionné automatique" },
-         {option : "Cruise Control" }, {option : "Avertisseur d'angle mort" }, {option : "Hayon arrière électrique" }, {option : "Rétroviseurs électriques" },
-         {option : "Sièges électriques" }, {option : "Vitres électriques" }, {option : "Assistance au freinage d'urgence" }, {option : "Isofix" },
-         {option : "Verrouillage centralisé sans clé" }, {option : "Verrouillage centralisé sans clé" }, {option : "Jantes en alliage léger" }, {option : "Peinture métallisée" },
-         {option : "Phares antibrouillard" }, {option : "Système de navigation" }, {option : "Toit ouvrant / panoramique" }, {option : "Toit panoramique" },
-         {option : "Pilote automatique de stationnement" }, {option : "Caméra" }, {option : "Capteur de stationnement" }, {option : "Radio" },
-         {option : "Porte coulissante" }, {option : "Pack sport" }, {option : "Sièges sport" }, {option : "Commande vocale" },
-         {option : "Interruption de démarrage" }, {option : "Système Start/Stop" }, {option : "Sièges massants" }, {option : "Sièges ventilés" },
-         {option : "Sièges chauffants" }, {option : "Sièges chauffants" }, {option : "Volant chauffant" }, {option : "Système Start/Stop" },
-         {option : "Anti démarrage" }, {option : "Attache-remorque" }, {option : "USB" }, {option : "Détection des panneaux routiers" },
-         {option : "Système de détection de la somnolence" }, {option : "Rétroviseurs extérieur chauffants" }, {option : "Phares au xénon" }
-        ]
+        
 
         return ( 
             <div class="container-fluid py-5 sectionAddCar">
-                <div class="container-fluid py-5 text-center">
-                    <div>
-                        <h1 class="titrePage">SANDERS CARS</h1>
-                    </div>
-                    
-                </div>
+                <TitrePage/>
                 <form onSubmit={this.handleSubmit}>
                     <div class="container sectionAddCar2">
                         <div class="container-fluid py-5 text-center">
@@ -195,52 +178,20 @@ class AddCar extends Component {
                                 <p class="titrePage2">{tritrePage2}</p>
                             </div>
                         </div>
-                        <div class="container-fluid">
-                            <h2 class="py-3">Photo</h2>
-                            <div>
-                                <input type="file" onChange={this.fileSelectedHandler}></input>
-                            </div>
-                            
-                        </div>
-                        <div class="container-fluid">
-                            <h2 class="py-3">Description</h2>
-                            <div>
-                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder={this.state.DescriptionText} value={this.state.DescriptionText} onChange={this.updateField}></textarea>
-                            </div>
-                            
-                        </div>
+                        <UploadPic/>
+                        <DescriptiveText placeholder={this.state.descriptiveText} value={this.state.descriptiveText} action={this.updateField}/>
                         <div class="container-fluid">
                             <h2 class="py-3">Caractéristique</h2>
                             <div class="row">
                                 {listCaracteristique.map((them)=>
                                 <ul>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">{them.label}</label>
-                                        <input type="text" class="form-control" id={them.id} placeholder={them.placeholder} value={this.state[them.id]} onChange={this.updateField}/>
-                                    </div>
+                                    <InputCar name={them.name} label={them.label} placeholder={them.placeholder} value={this.state[them.name]} action={this.updateField}/>
                                 </ul>)}
                             </div>
                         </div>
-                        
-                        <div class="container-fluid">
-                            <h2 class="py-3">Options</h2>
-                            <div class="row">
-                                {listCheckBox.map((them)=>
-                                <ul>
-                                    <div class="form-check" style={{width:"300px"}}>
-                                        <input class="form-check-input" type="checkbox" value="true" id={them.id} onChange={this.updateField}/>
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            {them.option}
-                                        </label>
-                                    </div>
-                                </ul>)}
-                            </div>
-                        </div>
-                    
-                        <div class="container-fluid">
-                            <h2 class="py-3">Prix</h2>
-                            <input type="text" class="form-control" id="prix" placeholder={this.state.prix} value={this.state.prix} onChange={this.updateField}/>
-                        </div>
+
+                        <OptionsCar/>
+                        <Price price={this.state.price} action={this.updateField}/>
                         <div class="container text-center py-5">
                             <button to="adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</button>
                         </div>

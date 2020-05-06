@@ -3,10 +3,7 @@ import './NavBar.css'
 import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+    
     render() { 
         return ( 
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark navBarBg" id="navBar1">

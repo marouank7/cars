@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import './HeroHeader.css'
 
 class HeroHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+    
     render() { 
         return ( 
             <header class="text-center" id="HeroHeader">

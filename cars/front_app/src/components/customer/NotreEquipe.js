@@ -3,10 +3,7 @@ import './NotreEquipe.css'
 
 
 class NotreEquipe extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+  
     render() { 
         return ( 
             <section class="container-fluid py-5 container1">

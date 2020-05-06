@@ -3,10 +3,7 @@ import './contact.css'
 
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+    
     render() { 
         return ( 
             <section class="text-white py-5 backgroundForm1" id="contact">
@@ -26,7 +23,7 @@ class Contact extends Component {
                                                 </div>
                                                 <div>
                                                     <div class="pl-2 item-h1 fontText"><strong>Adresse</strong></div>
-                                                    <p class="pl-2 fontText"> Rue Ernest Berthet 1B/202</p>
+                                                    <p class="pl-2 fontText"> Ottignies</p>
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-start">

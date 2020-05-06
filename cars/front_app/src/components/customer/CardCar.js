@@ -24,8 +24,6 @@ class CardCar extends Component {
                     <div class="col-lg-12 col-md-12">
                         <div class="card-body">
                             <Carousel/>
-                            {/* <img src={photo} alt="voiture" class="img-fluid w-50 mb-3" ></img> */}
-                            {/* <img src="img/visage1.jpg" alt="visage" class="img-fluid rounded-circle w-50 mb-3"> */}
                             <div class="py-3">
                             <h3 class="text-muted"><strong>Marque: </strong> {marque}</h3>
                             <h4 class="text-muted"><strong>Modèle: </strong> {modele}</h4>

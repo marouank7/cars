@@ -2,18 +2,14 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import ReactDOM from "react-dom";
-
-// import AddCar from './AddCar'
 import './AdminPage.css'
 
 
 class AdminPage extends Component {
     constructor(props) {
         super(props);
-        // this.AddCarElement = React.createRef();
+        
         this.state = { 
-            // editM : false,
             listCars : []
          }
     }
@@ -24,15 +20,10 @@ class AdminPage extends Component {
 
     
     getDataAddCar = () => {
-        axios.get('http://localhost:3005/api/getcar')
+        axios.get('http://localhost:3005/api/cars')
         .then((response) => {
             // handle success
-            console.log("response",response.data)
             this.setState({ listCars : response.data})
-            // this.setState({ movies : response.data.movies})
-            console.log("iciiii",response.data)
-            console.log('this.state.listCars555555', this.state.listCars)
-            
         })
         .catch((error) => {
             // handle error
@@ -44,18 +35,12 @@ class AdminPage extends Component {
     };
 
     removeCars = (id) =>{
-        axios.delete(`http://localhost:3005/api/getcar/${id}`)
+        axios.delete(`http://localhost:3005/api/cars/${id}`)
         .then(res => {
-            console.log(res);
-            console.log(res.data);
             this.getDataAddCar()
       })
     }
     
-    // changeEditM = () => {
-    //     this.setState({ editM : true });
-    //     console.log("this.state.editM",this.state.editM)
-    // }
 
     render() { 
         
@@ -65,11 +50,9 @@ class AdminPage extends Component {
                 <div class="container-fluid admin2">
                     <div class="row">
                         <h1><strong>Liste des items    </strong><Link to={{pathname : "/create-a-car", state : {id :false} }} class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Ajouter</Link></h1>
-                        {/* to={{pathname:"/addcarpage", state:{...this.state.listCars}}} */}
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    {/* <th>{this.state.listCars[5].marque}</th> */}
                                     <th>Id</th>
                                     <th>Marque</th>
                                     <th>Modèle</th>
@@ -90,16 +73,10 @@ class AdminPage extends Component {
                                                 <Link to={{ 
                                                     pathname : "/viewpage",
                                                     state : {...propsCar}
-                                                }}
+                                                    }}
                                                     class="btn btn-light"
-                                                ><i class="far fa-eye"></i> Voir</Link>
-{/* 
-                                                <Link to={{ 
-                                                    pathname : "/addcarpage",
-                                                    state : {...propsCar}
-                                                }}
-                                                ></Link> */}
-
+                                                    ><i class="far fa-eye"></i> Voir
+                                                </Link>
                                                 <Link 
                                                     to={{
                                                     pathname :"/update-a-car",
@@ -107,7 +84,8 @@ class AdminPage extends Component {
                                                     }} 
                                                     class="btn btn-primary ml-2">
                                                     
-                                                <i class="fas fa-pencil-alt"></i> Modifier</Link>
+                                                    <i class="fas fa-pencil-alt"></i> Modifier
+                                                </Link>
 
                                                 <button to="/delete" class="btn btn-danger ml-2" onClick={() => this.removeCars(propsCar.id)} ><i class="far fa-eye"></i> Supprimer</button>
                                             </td>
@@ -115,14 +93,8 @@ class AdminPage extends Component {
                                     )}
                             </tbody>
                         </table>
-                    </div>
-                       
+                    </div>   
                 </div>
-                <Link to={{ 
-                        pathname : "/modelespage",
-                        state : {...this.state.listCars}
-                    }}
-                ></Link>
             </section>
          );
     }

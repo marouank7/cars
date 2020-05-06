@@ -7,6 +7,7 @@ class AddCar extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectedFiled : null,
             DescriptionText : "",
             marque : "",
             modele : "",
@@ -28,6 +29,10 @@ class AddCar extends Component {
          
     }
 
+    fileSelectedHandler = (event) => {
+        this.setState({ selectedFiled : event.target.files[0] });
+        console.log(event.target.files[0])
+    }
 
     updateField = (event) => {
         this.setState({[event.target.id] : event.target.value});
@@ -35,27 +40,20 @@ class AddCar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-         return (this.props.location.state.id === false ? this.postCar() : this.UpdateCar(this.props.location.state.id));
+        // this.fileSelectedHandler()
+        return (this.props.location.state.id === false ? this.postCar() : this.UpdateCar(this.props.location.state.id));
     }
-
-    
-    
 
     componentDidMount(){
         this.getCarToBeUpdate(this.props.location.state.id)
     }
 
     getCarToBeUpdate = (id) => {
-        axios.get(`http://localhost:3005/api/getcar/${id}`)
+        axios.get(`http://localhost:3005/api/cars/${id}`)
         .then((response) => {
             // handle success
-            // console.log("response333",response)
-            console.log("iciiii444",response.data[0])
-            // console.log("stateActuel",this.state)
             this.setState(response.data[0]);
-            console.log("stateUpdate", this.state)
         })
-        
         .catch((error) => {
             // handle error
             console.log(error);
@@ -66,7 +64,7 @@ class AddCar extends Component {
     };
     
     UpdateCar = (id) =>{
-        axios.put(`http://localhost:3005/api/getcar/${id}`, this.state)
+        axios.put(`http://localhost:3005/api/cars/${id}`, this.state)
         .then((res) => {
             console.log(res.data)
             console.log("axiosPut", res.data)
@@ -78,23 +76,15 @@ class AddCar extends Component {
     }
 
     postCar = () => {
-        axios.post('http://localhost:3005/api/getcar', this.state)
+        axios.post('http://localhost:3005/api/cars', this.state)
           .then(function (response) {
             console.log("response post",response);
           })
           .then(() => this.props.history.push('/adminpage'))
     }
 
-    fileSelected = (event) => {
-        console.log(event)
-    }
+    render() {
 
-    
-
-    render() { 
-
-        console.log("thisPropspspspssp",this.state)
-    
         const {tritrePage2} = this.props
         
         const listCaracteristique = [
@@ -194,9 +184,7 @@ class AddCar extends Component {
             <div class="container-fluid py-5 sectionAddCar">
                 <div class="container-fluid py-5 text-center">
                     <div>
-                        {/* <i class="fas fa-car"></i> */}
                         <h1 class="titrePage">SANDERS CARS</h1>
-                        {/* <i class="fas fa-car"></i> */}
                     </div>
                     
                 </div>
@@ -204,22 +192,20 @@ class AddCar extends Component {
                     <div class="container sectionAddCar2">
                         <div class="container-fluid py-5 text-center">
                             <div>
-                                {/* <i class="fas fa-car"></i> */}
                                 <p class="titrePage2">{tritrePage2}</p>
-                                {/* <i class="fas fa-car"></i> */}
                             </div>
                         </div>
                         <div class="container-fluid">
                             <h2 class="py-3">Photo</h2>
                             <div>
-                                <input type="file" onChange={this.fileSelected}></input>
+                                <input type="file" onChange={this.fileSelectedHandler}></input>
                             </div>
                             
                         </div>
                         <div class="container-fluid">
                             <h2 class="py-3">Description</h2>
                             <div>
-                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder={this.state.DescriptionText} onChange={this.updateField}></textarea>
+                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder={this.state.DescriptionText} value={this.state.DescriptionText} onChange={this.updateField}></textarea>
                             </div>
                             
                         </div>
@@ -230,7 +216,7 @@ class AddCar extends Component {
                                 <ul>
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">{them.label}</label>
-                                        <input type="text" class="form-control" id={them.id} placeholder={them.placeholder} onChange={this.updateField}/>
+                                        <input type="text" class="form-control" id={them.id} placeholder={them.placeholder} value={this.state[them.id]} onChange={this.updateField}/>
                                     </div>
                                 </ul>)}
                             </div>
@@ -253,12 +239,10 @@ class AddCar extends Component {
                     
                         <div class="container-fluid">
                             <h2 class="py-3">Prix</h2>
-                            <input type="text" class="form-control" id="prix" placeholder={this.state.prix} onChange={this.updateField}/>
+                            <input type="text" class="form-control" id="prix" placeholder={this.state.prix} value={this.state.prix} onChange={this.updateField}/>
                         </div>
                         <div class="container text-center py-5">
                             <button to="adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</button>
-                            {/* <button to="adminpage" class="btn btn-lg save text-light ml-2" onClick={this.UpdateCars(this.props.location.state.id)}><i class="far fa-save"></i> Update</button> */}
-                            {/* <Link to="/adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</Link> */}
                         </div>
                         
     

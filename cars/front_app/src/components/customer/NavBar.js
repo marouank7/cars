@@ -9,10 +9,10 @@ class NavBar extends Component {
     }
     render() { 
         return ( 
-            <nav class="navbar fixed-top navbar-expand-lg navBarBg" id="navBar1">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark navBarBg" id="navBar1">
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggler" 
                     aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon" ></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarToggler">

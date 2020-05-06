@@ -13,7 +13,6 @@ class Footer extends Component {
                     <div class="row">
                         <div class="col">
                             <p>Copyright &copy; <span id="year"></span> Sanders Car</p>
-
                         </div>
                     </div>
                 </div>

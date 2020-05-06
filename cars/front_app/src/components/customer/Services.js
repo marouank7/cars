@@ -26,11 +26,7 @@ class Services extends Component {
                         <h4 style={{color:"white"}}>Dépannage</h4>
                         <p style={{color:"white"}}>eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
                     </div>
-                </div>
-                
-                                        
-                
-
+                </div>                  
             </section>
          );
     }

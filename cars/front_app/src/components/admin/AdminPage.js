@@ -65,9 +65,9 @@ class AdminPage extends Component {
                                     {this.state.listCars.map((propsCar, index) => 
                                         <tr key={index}>
                                             <td>{propsCar.id}</td>
-                                            <td>{propsCar.marque}</td>
-                                            <td>{propsCar.modele}</td>
-                                            <td>{propsCar.prix}</td>
+                                            <td>{propsCar.brand}</td>
+                                            <td>{propsCar.model}</td>
+                                            <td>{propsCar.price}</td>
                                             <td style={{width:"350px"}}>
 
                                                 <Link to={{ 

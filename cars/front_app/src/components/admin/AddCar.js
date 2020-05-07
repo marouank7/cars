@@ -8,23 +8,23 @@ class AddCar extends Component {
         super(props);
         this.state = {
             selectedFiled : null,
-            DescriptionText : "",
-            marque : "",
-            modele : "",
-            carburant : "",
-            classeEmission : "",
-            carrosserie : "",
-            portes : "",
-            transmission : "",
-            couleur : "",
-            interieur : "",
-            AnneeDeFabrication : "",
+            descriptiveText : "",
+            brand : "",
+            model : "",
+            fuel : "",
+            emissionClass : "",
+            bodyCar : "",
+            doors : "",
+            gearbox : "",
+            color : "",
+            interior : "",
+            year : "",
             co2 : "",
-            NombreDePlaces : "",
-            cylindree : "",
-            UrlCarPass : "",
-            prix : "",
-            kilometrage : "",     
+            carSeat : "",
+            power : "",
+            urlCarPass : "",
+            price : "",
+            kilometer : "",     
          }
          
     }
@@ -91,52 +91,52 @@ class AddCar extends Component {
             {
                 label : "Marque",
                 id: "marque",
-                placeholder : this.state.marque
+                placeholder : this.state.brand
             },
             {
                 label : "Modèle",
                 id: "modele",
-                placeholder : this.state.modele
+                placeholder : this.state.model
             },
             {
                 label : "Carburant",
                 id: "carburant",
-                placeholder : this.state.carburant
+                placeholder : this.state.fuel
             },
             {
                 label : "Classe d'émission",
                 id: "classeEmission",
-                placeholder : this.state.classeEmission
+                placeholder : this.state.emissionClass
             },
             {
                 label : "Carrosserie",
                 id: "carrosserie",
-                placeholder : this.state.carrosserie
+                placeholder : this.state.bodyCar
             },
             {
                 label : "Portes",
                 id: "portes",
-                placeholder : this.state.portes
+                placeholder : this.state.doors
             },
             {
                 label : "Transmission",
                 id: "transmission",
-                placeholder : this.state.transmission
+                placeholder : this.state.gearbox
             },
             {
                 label : "Couleur",
                 id: "couleur",
-                placeholder : this.state.couleur
+                placeholder : this.state.color
             },
             {
                 label : "Intérieur",
                 id: "interieur",
-                placeholder : this.state.interieur
+                placeholder : this.state.interior
             },
             {
                 label : "Année de fabrication",
                 id: "AnneeDeFabrication",
-                placeholder : this.state.AnneeDeFabrication
+                placeholder : this.state.year
             },
             {
                 label : "CO2",
@@ -146,22 +146,22 @@ class AddCar extends Component {
             {
                 label : "Kilométrage",
                 id: "kilometrage",
-                placeholder : this.state.kilometrage
+                placeholder : this.state.kilometer
             },
             {
                 label : "Nombre de places",
                 id: "NombreDePlaces",
-                placeholder : this.state.NombreDePlaces
+                placeholder : this.state.carSeat
             },
             {
                 label : "Cylindrée",
                 id: "cylindree",
-                placeholder : this.state.cylindree
+                placeholder : this.state.power
             },
             {
                 label : "L'url du relevé de Car-Pass",
                 id: "UrlCarPass",
-                placeholder : this.state.UrlCarPass
+                placeholder : this.state.urlCarPass
             }
         ]
 
@@ -205,7 +205,7 @@ class AddCar extends Component {
                         <div class="container-fluid">
                             <h2 class="py-3">Description</h2>
                             <div>
-                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder={this.state.DescriptionText} value={this.state.DescriptionText} onChange={this.updateField}></textarea>
+                                <textarea class="form-control" name="message" id="DescriptionText" rows="4" required="required"  placeholder={this.state.descriptiveText} value={this.state.descriptiveText} onChange={this.updateField}></textarea>
                             </div>
                             
                         </div>
@@ -239,7 +239,7 @@ class AddCar extends Component {
                     
                         <div class="container-fluid">
                             <h2 class="py-3">Prix</h2>
-                            <input type="text" class="form-control" id="prix" placeholder={this.state.prix} value={this.state.prix} onChange={this.updateField}/>
+                            <input type="text" class="form-control" id="prix" placeholder={this.state.price} value={this.state.price} onChange={this.updateField}/>
                         </div>
                         <div class="container text-center py-5">
                             <button to="adminpage" type="submit" class="btn btn-lg save text-light"><i class="far fa-save"></i> Save</button>
